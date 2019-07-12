@@ -1,9 +1,10 @@
 class ApplicationController < Sinatra::Base
 
-  enable :sessions
+
   use Rack::Flash
 
   configure do
+    enable :sessions
     set :session_secret, "glyyph"
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -11,7 +12,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
 
-    erb :index
+    erb :new
+
 
   end
 
