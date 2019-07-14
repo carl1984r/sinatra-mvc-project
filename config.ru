@@ -7,3 +7,6 @@ require_relative './config/environment'
 
 use Rack::MethodOverride
 run ApplicationController
+use AirportsController
+use ReviewsController
+use UsersController
