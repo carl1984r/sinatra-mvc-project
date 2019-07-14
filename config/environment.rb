@@ -1,5 +1,6 @@
 require 'bundler'
 require 'pry'
+require 'rack-flash'
 
 
 Bundler.require
