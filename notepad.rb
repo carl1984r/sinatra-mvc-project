@@ -1,1 +1,1 @@
-#User.create(:username => "noname", :email => "felix@nothing.com", :password => "fixed")
+#Airport.create(:airport_code => "0J6", :airport_name=> "Headland International")

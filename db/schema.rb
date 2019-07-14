@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_131552) do
+ActiveRecord::Schema.define(version: 2019_07_14_233909) do
+
+  create_table "airports", force: :cascade do |t|
+    t.string "airport_code"
+    t.string "airport_name"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_airports_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "airport_id"
+    t.index ["airport_id"], name: "index_reviews_on_airport_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
