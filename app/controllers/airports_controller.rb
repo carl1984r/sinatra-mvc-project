@@ -1,9 +1,9 @@
 class AirportsController < ApplicationController
 
-end
+  get '/airports' do
 
-get '/airports' do
+    erb :airports
 
-  erb :airports
+  end
 
 end
