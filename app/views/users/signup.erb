@@ -1,6 +1,12 @@
+
+
 <h1>Account Sign Up</h1>
 
 <p>Please complete the form below to create a new user account.</p>
+
+<% if flash.has?(:empty_signup_form_error) %>
+  <strong><%= flash[:empty_signup_form_error] %></strong>
+<% end %>
 
 <form method="POST" action="/signup">
   <label><p>Username:</p><input type = "text" name="username" id="username"><br><br>
