@@ -1,0 +1,11 @@
+<h1>Welcome, <%= @user.username %></h1>
+
+ <p>Posted Reviews</p>
+
+<% @reviews.each do |review| %>
+<ul>
+  <li><a href="/reviews/<%= review.id %>"><%= review.content %></a></li>
+</ul>
+<% end %>
+
+<button onclick="location.href = '/reviews/new';" type="button">New Review</button>
