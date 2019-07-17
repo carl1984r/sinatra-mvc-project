@@ -27,6 +27,8 @@ class ReviewsController < ApplicationController
     else
 
        Review.create(:content => params["content"], :user_id => user.id)
+       @user = user.username
+       @reviews = Review.all
        erb :'/reviews/reviews'
 
     end

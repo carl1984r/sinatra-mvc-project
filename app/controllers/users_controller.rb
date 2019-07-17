@@ -9,18 +9,18 @@ class UsersController < ApplicationController
   post '/signup' do
 
       if  params[:username].empty? || params[:email].empty? || params[:password].empty?
-        
+
           flash[:empty_signup_form_error] = "Complete all form fields."
           erb :'users/signup'
-          
+
       else
-        
+
           user = User.create(:username => params["username"], :email => params["email"], :password => params["password"])
           session[:user_id] = user.id
-          erb :done
-          
+          erb :'/reviews/reviews'
+
       end
-      
+
     end
 
   get '/login' do
@@ -35,8 +35,10 @@ class UsersController < ApplicationController
 
     if user && user.authenticate(params[:password])
 
+      @user = user
+      @reviews = Review.all
       session[:user_id] = user.id
-      erb :done
+      erb :'/reviews/reviews'
 
     else
 
