@@ -19,6 +19,10 @@
   <strong><%= flash[:create_error] %></strong>
 <% end %>
 
+<% if flash.has?(:delete_error) %>
+  <strong><%= flash[:delete_error] %></strong>
+<% end %>
+
 <form method="POST" action="/login">
 
   <label><p>Username:</p><input type = "text" name="username" id="username"><br><br>

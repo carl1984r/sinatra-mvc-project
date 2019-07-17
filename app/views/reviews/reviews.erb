@@ -2,6 +2,10 @@
 
  <p>Posted Reviews</p>
 
+ <% if flash.has?(:wrong_user_error) %>
+   <strong><%= flash[:wrong_user_error] %></strong>
+ <% end %>
+
 <% @reviews.each do |review| %>
 <ul>
   <li><a href="/reviews/<%= review.id %>"><%= review.content %></a></li>

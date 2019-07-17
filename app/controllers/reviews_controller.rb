@@ -27,9 +27,8 @@ class ReviewsController < ApplicationController
     else
 
        Review.create(:content => params["content"], :user_id => user.id)
-       @user = user.username
-       @reviews = Review.all
-       erb :'/reviews/reviews'
+
+       redirect to '/reviews'
 
     end
 
@@ -66,5 +65,28 @@ class ReviewsController < ApplicationController
     end
 
   end
+
+  post '/reviews/:id/delete' do
+
+    @review = Review.find(params[:id])
+
+    if !Helpers.is_logged_in?(session)
+
+      flash[:delete_error] = "Please login to create a review."
+      erb :'/users/login'
+
+    elsif Helpers.current_user(session).id != @review.user_id
+
+      flash[:wrong_user_error] = "Can only delete own posts."
+      erb :'/reviews/reviews'
+
+    else
+
+    @tweet.delete
+    redirect to '/reviews'
+
+  end
+
+ end
 
 end
