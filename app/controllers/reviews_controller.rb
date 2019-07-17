@@ -1,5 +1,16 @@
 class ReviewsController < ApplicationController
 
+  get '/reviews/new' do
+
+    if !Helpers.is_logged_in?(session)
+      flash[:create_error] = "Please login to create a review"
+      erb :'/users/login'
+    end
+
+    erb :"/reviews/new"
+
+  end
+
   get '/reviews' do
 
     if !Helpers.is_logged_in?(session)
@@ -25,5 +36,7 @@ class ReviewsController < ApplicationController
     erb :"reviews/show"
 
   end
+
+
 
 end
