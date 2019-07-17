@@ -1,3 +1,7 @@
+<% if flash.has?(:empty_content_error) %>
+  <strong><%= flash[:empty_content_error] %></strong>
+<% end %>
+
 <form method="POST" action="/reviews">
 
   <label>Create a New Review:</label>
