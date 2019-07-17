@@ -11,6 +11,10 @@
   <strong><%= flash[:logged_out] %></strong>
 <% end %>
 
+<% if flash.has?(:please_login) %>
+  <strong><%= flash[:please_login] %></strong>
+<% end %>
+
 <form method="POST" action="/login">
 
   <label><p>Username:</p><input type = "text" name="username" id="username"><br><br>
