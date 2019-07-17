@@ -1,0 +1,19 @@
+
+<%= @review.content %>
+
+</br></br>
+
+<button onclick="location.href = '/reviews/reviews';">Back to Reviews</button>
+
+</br>
+
+<button onclick="location.href = '/reviews/<%= @review.id %>/edit';" type="button">Edit Review</button>
+
+
+</br>
+
+<form method="POST" action="/reviews/<%= @review.id %>/delete">
+  <input type="submit" value="Delete Review">
+</form>
+
+<button onclick="location.href = '/logout';">Logout</button>
