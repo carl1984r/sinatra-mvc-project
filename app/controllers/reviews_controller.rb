@@ -93,6 +93,25 @@ class ReviewsController < ApplicationController
 
   end
 
+  patch '/reviews/:id' do
+
+    @review = Review.find(params[:id])
+
+    if params["content"].empty?
+
+      flash[:no_content_edit] = "An edit must have content"
+      erb :"reviews/edit"
+
+    else
+
+      @review.update(:content => params["content"])
+      @review.save
+      redirect to "/reviews/#{@review.id}"
+
+    end
+
+  end
+
   post '/reviews/:id/delete' do
 
     @review = Review.find(params[:id])

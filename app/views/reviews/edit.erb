@@ -1,6 +1,10 @@
 
 <h1>Edit Review Content:</h1>
 
+<% if flash.has?(:no_content_edit) %>
+  <strong><%= flash[:no_content_edit] %></strong>
+<% end %>
+
 <form method="POST" action="/reviews/<%= @review.id %>">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
