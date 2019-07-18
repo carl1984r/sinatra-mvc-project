@@ -19,14 +19,17 @@ class ReviewsController < ApplicationController
 
     user = Helpers.current_user(session)
 
-    if params["content"].empty?
+    if params["content"].empty? || params["airport_code"].empty? || params["airport_name"].empty?
 
-       flash[:empty_content_error] = "Review cannot be empty."
+       flash[:empty_content_error] = "Fields cannot be empty."
        erb :"/reviews/new"
 
     else
 
-       Review.create(:content => params["content"], :user_id => user.id)
+       review = Review.create(:content => params["content"], :user_id => user.id)
+       airport = Airport.create(:airport_code => params["airport_code"], :airport_name => params["airport_name"], :user_id => user.id)
+       airport.reviews << review
+       user.airports << airport
        @user = Helpers.current_user(session)
        @reviews = Review.all
        flash[:review_created] = "Review created."
@@ -63,6 +66,7 @@ class ReviewsController < ApplicationController
     else
 
       @review = Review.find(params[:id])
+      @user = User.find(@review.user_id)
       erb :"reviews/show"
 
     end

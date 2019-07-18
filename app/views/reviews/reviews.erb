@@ -1,6 +1,6 @@
 <h1>Welcome, <%= @user.username %></h1>
 
- <p>Posted Reviews</p>
+ <p>All Airport Reviews</p>
 
  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
    <div class="flash <%= type %>">
@@ -9,9 +9,9 @@
 <% end %>
 
 <% @reviews.each do |review| %>
-<ul>
-  <li><a href="/reviews/<%= review.id %>"><%= review.content %></a></li>
-</ul>
+  <ul>
+    <li><a href="/reviews/<%= review.id %>"><%= review.content %></a> <br> <em>posted on: <%= review.created_at %> by <%= User.find(review.user_id).username %></em></li> <br><br>
+  </ul>
 <% end %>
 
 <button onclick="location.href = '/reviews/new';" type="button">Create a Review</button>
