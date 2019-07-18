@@ -1,17 +1,17 @@
-<h1>Welcome, <%= @user.username %></h1>
+<h3>Welcome, <%= @user.username %></h3>
 
- <p>All Airport Reviews</p>
+ <strong><p>Recent Airport Reviews</p></strong>
+
+ <button onclick="location.href = '/reviews/new';" type="button">Create a Review</button><br>
 
  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
    <div class="flash <%= type %>">
-     <strong><%= flash[type] %></strong>
+     <br><strong><%= flash[type] %></strong>
    </div>
 <% end %>
 
-<% @reviews.each do |review| %>
+<% @reviews.reverse.each do |review| %>
   <ul>
-    <li><a href="/reviews/<%= review.id %>"><%= review.content %></a> <br> <em>posted on: <%= review.created_at %> by <%= User.find(review.user_id).username %></em></li> <br><br>
+    <li><a href="/reviews/<%= review.id %>"><%= review.content %></a> <br> &nbsp &nbsp <em>posted on: <%= review.created_at %> by <%= User.find(review.user_id).username %></em></li> <br><br>
   </ul>
 <% end %>
-
-<button onclick="location.href = '/reviews/new';" type="button">Create a Review</button>
