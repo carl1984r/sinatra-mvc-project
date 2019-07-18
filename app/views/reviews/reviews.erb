@@ -2,8 +2,8 @@
 
  <p>Posted Reviews</p>
 
- <% if flash.has?(:wrong_user_error) %>
-   <strong><%= flash[:wrong_user_error] %></strong>
+ <% if flash.has?(:wrong_user_delete) %>
+   <strong><%= flash[:wrong_user_delete] %></strong>
  <% end %>
 
  <% if flash.has?(:success) %>
@@ -12,6 +12,10 @@
 
  <% if flash.has?(:review_created) %>
    <strong><%= flash[:review_created] %></strong>
+ <% end %>
+
+ <% if flash.has?(:wrong_user_edit) %>
+   <strong><%= flash[:wrong_user_edit] %></strong>
  <% end %>
 
 <% @reviews.each do |review| %>

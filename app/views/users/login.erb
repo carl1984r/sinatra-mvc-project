@@ -23,6 +23,12 @@
   <strong><%= flash[:delete_error] %></strong>
 <% end %>
 
+<% if flash.has?(:login_to_edit) %>
+  <strong><%= flash[:login_to_edit] %></strong>
+<% end %>
+
+
+
 <form method="POST" action="/login">
 
   <label><p>Username:</p><input type = "text" name="username" id="username"><br><br>

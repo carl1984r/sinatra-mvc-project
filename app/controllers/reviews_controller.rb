@@ -69,6 +69,30 @@ class ReviewsController < ApplicationController
 
   end
 
+  get '/reviews/:id/edit' do
+
+    @review = Review.find(params[:id])
+
+    if !Helpers.is_logged_in?(session)
+
+      flash[:login_to_edit] = "Please login to edit a review."
+      erb :'/users/login'
+
+    elsif Helpers.current_user(session).id != @review.user_id
+
+      @reviews = Review.all
+      @user = Helpers.current_user(session)
+      flash[:wrong_user_edit] = "Oops! You can only edit your own reviews."
+      erb :'/reviews/reviews'
+
+    else
+
+      erb :"reviews/edit"
+
+    end
+
+  end
+
   post '/reviews/:id/delete' do
 
     @review = Review.find(params[:id])
@@ -82,7 +106,7 @@ class ReviewsController < ApplicationController
 
       @user = Helpers.current_user(session)
       @reviews = Review.all
-      flash[:wrong_user_error] = "Oops! You can only delete your own reviews."
+      flash[:wrong_user_delete] = "Oops! You can only delete your own reviews."
       erb :'/reviews/reviews'
 
     else
