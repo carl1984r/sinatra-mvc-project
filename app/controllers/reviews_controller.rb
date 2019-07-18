@@ -21,14 +21,16 @@ class ReviewsController < ApplicationController
 
     if params["content"].empty?
 
-       flash[:empty_content_error] = "Review must have content."
+       flash[:empty_content_error] = "Review cannot be empty."
        erb :"/reviews/new"
 
     else
 
        Review.create(:content => params["content"], :user_id => user.id)
-
-       redirect to '/reviews'
+       @user = Helpers.current_user(session)
+       @reviews = Review.all
+       flash[:review_created] = "Review created."
+       erb :'/reviews/reviews'
 
     end
 
@@ -39,7 +41,7 @@ class ReviewsController < ApplicationController
     if !Helpers.is_logged_in?(session)
 
       flash[:please_login] = "Please login to view content."
-      redirect to '/login'
+      erb :'/users/login'
 
     else
 
@@ -54,6 +56,7 @@ class ReviewsController < ApplicationController
   get '/reviews/:id' do
 
     if !Helpers.is_logged_in?(session)
+
       flash[:please_login] = "Please login to view content."
       erb :'/users/login'
 
@@ -72,18 +75,23 @@ class ReviewsController < ApplicationController
 
     if !Helpers.is_logged_in?(session)
 
-      flash[:delete_error] = "Please login to create a review."
+      flash[:delete_error] = "Please login to delete a review."
       erb :'/users/login'
 
     elsif Helpers.current_user(session).id != @review.user_id
 
-      flash[:wrong_user_error] = "Can only delete own posts."
+      @user = Helpers.current_user(session)
+      @reviews = Review.all
+      flash[:wrong_user_error] = "Oops! You can only delete your own reviews."
       erb :'/reviews/reviews'
 
     else
 
-    @tweet.delete
-    redirect to '/reviews'
+      @review.delete
+      @user = Helpers.current_user(session)
+      @reviews = Review.all
+      flash[:success] = "Review deleted."
+      erb :'/reviews/reviews'
 
   end
 

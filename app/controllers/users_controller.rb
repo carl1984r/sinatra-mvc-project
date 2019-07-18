@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
           user = User.create(:username => params["username"], :email => params["email"], :password => params["password"])
           session[:user_id] = user.id
-          erb :'/reviews/reviews'
+          redirect to '/reviews'
 
       end
 

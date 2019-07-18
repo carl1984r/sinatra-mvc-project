@@ -6,6 +6,14 @@
    <strong><%= flash[:wrong_user_error] %></strong>
  <% end %>
 
+ <% if flash.has?(:success) %>
+   <strong><%= flash[:success] %></strong>
+ <% end %>
+
+ <% if flash.has?(:review_created) %>
+   <strong><%= flash[:review_created] %></strong>
+ <% end %>
+
 <% @reviews.each do |review| %>
 <ul>
   <li><a href="/reviews/<%= review.id %>"><%= review.content %></a></li>

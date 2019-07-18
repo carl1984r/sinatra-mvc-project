@@ -26,15 +26,16 @@ airports_table.each do |x|
   u.save
 end
 
-reviews_table = ["Amazing experience!"],
-             ["Excellent distance to food!"],
-             ["Great to visit old Florida."],
-             ["Mickey Mouse!"],
-             ["Country airport."]
+reviews_table = ["Amazing experience!", 1],
+             ["Excellent distance to food!", 3],
+             ["Great to visit old Florida.", 2],
+             ["Mickey Mouse!", 1],
+             ["Country airport.", 2]
 
 reviews_table.each do |x|
   u = Review.new
   u.content = x[0]
+  u.user_id = x[1]
   u.save
 end
 
