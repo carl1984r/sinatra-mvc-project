@@ -4,8 +4,10 @@
 
 <p>Please complete the form below to create a new user account.</p>
 
-<% if flash.has?(:empty_signup_form_error) %>
-  <strong><%= flash[:empty_signup_form_error] %></strong>
+<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+  <div class="flash <%= type %>">
+    <strong><%= flash[type] %></strong>
+  </div>
 <% end %>
 
 <form method="POST" action="/signup">

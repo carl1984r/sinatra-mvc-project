@@ -3,31 +3,11 @@
 
 <h1>Account Login</h1>
 
-<% if flash.has?(:login_error) %>
-  <strong><%= flash[:login_error] %></strong>
+<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+  <div class="flash <%= type %>">
+    <strong><%= flash[type] %></strong>
+  </div>
 <% end %>
-
-<% if flash.has?(:logged_out) %>
-  <strong><%= flash[:logged_out] %></strong>
-<% end %>
-
-<% if flash.has?(:please_login) %>
-  <strong><%= flash[:please_login] %></strong>
-<% end %>
-
-<% if flash.has?(:create_error) %>
-  <strong><%= flash[:create_error] %></strong>
-<% end %>
-
-<% if flash.has?(:delete_error) %>
-  <strong><%= flash[:delete_error] %></strong>
-<% end %>
-
-<% if flash.has?(:login_to_edit) %>
-  <strong><%= flash[:login_to_edit] %></strong>
-<% end %>
-
-
 
 <form method="POST" action="/login">
 

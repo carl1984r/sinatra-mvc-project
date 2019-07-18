@@ -2,21 +2,11 @@
 
  <p>Posted Reviews</p>
 
- <% if flash.has?(:wrong_user_delete) %>
-   <strong><%= flash[:wrong_user_delete] %></strong>
- <% end %>
-
- <% if flash.has?(:success) %>
-   <strong><%= flash[:success] %></strong>
- <% end %>
-
- <% if flash.has?(:review_created) %>
-   <strong><%= flash[:review_created] %></strong>
- <% end %>
-
- <% if flash.has?(:wrong_user_edit) %>
-   <strong><%= flash[:wrong_user_edit] %></strong>
- <% end %>
+ <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+   <div class="flash <%= type %>">
+     <strong><%= flash[type] %></strong>
+   </div>
+<% end %>
 
 <% @reviews.each do |review| %>
 <ul>

@@ -1,8 +1,10 @@
 
 <h1>Create a New Review:</h1>
 
-<% if flash.has?(:empty_content_error) %>
-  <strong><%= flash[:empty_content_error] %></strong>
+<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+  <div class="flash <%= type %>">
+    <strong><%= flash[type] %></strong>
+  </div>
 <% end %>
 
 <form method="POST" action="/reviews">
