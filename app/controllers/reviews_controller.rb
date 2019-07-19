@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     else
 
        review = Review.create(:content => params["content"], :user_id => user.id)
-       airport = Airport.create(:airport_code => params["airport_code"], :airport_name => params["airport_name"], :user_id => user.id)
+       !!Airport.find_by(:airport_code => params["airport_code"].upcase) ? airport = Airport.find_by(:airport_code => params["airport_code"].upcase) : airport = Airport.create(:airport_code => params["airport_code"].upcase, :airport_name => params["airport_name"], :user_id => user.id)
        airport.reviews << review
        user.airports << airport
        @user = Helpers.current_user(session)

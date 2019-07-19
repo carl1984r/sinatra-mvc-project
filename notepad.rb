@@ -5,3 +5,7 @@
 #def change
 #    add_column :reviews, :user_id, :integer
 #end
+
+#!!Airport.find_by(:airport_code => params["airport_code"].upcase)
+
+#User.find_by(:id => session[:user_id])
