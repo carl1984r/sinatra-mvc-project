@@ -1,5 +1,5 @@
 
-<strong><em>Posted by <%= @user.username %> on <%= @review.created_at %></em></strong><br><br>
+<strong><em>Posted by <%= @user.username %> on <%= @review.created_at.strftime("%A, %B %d, %Y") %></em></strong><br><br>
 
 <%= @review.content %>
 
