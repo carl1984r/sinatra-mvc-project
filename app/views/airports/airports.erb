@@ -1,4 +1,8 @@
-<strong><p>Airports You Have Reviewed</p></strong>
+<h3>Logged in as: <%= @user.username %></h3>
+
+<h3><p>Airports You Have Reviewed<p></h3>
+
+<button onclick="location.href = '/logout';">Logout</button>
 
 <% @airports.reverse.each do |airport| %>
   <ul>

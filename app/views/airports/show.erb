@@ -1,0 +1,9 @@
+<h3>Logged in as: <%= @user.username %> </h3>
+
+<button onclick="location.href = '/logout';">Logout</button>
+
+<% @reviews.reverse.each do |review| %>
+  <ul>
+    <li><%= review.content %></a> <br> &nbsp &nbsp <em>posted on: <%= review.created_at.strftime("%A, %B %d, %Y") %> by <%= User.find(review.user_id).username %></em></li> <br><br>
+  </ul>
+<% end %>
