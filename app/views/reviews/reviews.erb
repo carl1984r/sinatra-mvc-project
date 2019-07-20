@@ -1,10 +1,10 @@
-<h3>Welcome, <%= @user.username %>!</h3>
+<h3>Logged in as: <%= @user.username %> </h3>
 
 <button onclick="location.href = '/airports';" type="button">View my Airports and Reviews</button><br>
 
- <strong><p>Recent Airport Reviews</p></strong>
+ <h3>Recent Airport Reviews</h3>
 
- <button onclick="location.href = '/reviews/new';" type="button">Create a Review</button><br>
+ <button onclick="location.href = '/reviews/new';" type="button">Create a Review</button> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button>
 
  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
    <div class="flash <%= type %>">

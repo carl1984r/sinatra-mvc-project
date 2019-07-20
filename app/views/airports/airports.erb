@@ -1,0 +1,7 @@
+<strong><p>Airports You Have Reviewed</p></strong>
+
+<% @airports.reverse.each do |airport| %>
+  <ul>
+    <li><a href="/airports/<%= airport.id %>"><%= airport.airport_code %></a> <br>  </em></li>
+  </ul>
+<% end %>
