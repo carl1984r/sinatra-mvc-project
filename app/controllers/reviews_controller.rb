@@ -102,14 +102,16 @@ class ReviewsController < ApplicationController
 
     if params["content"].empty?
 
-      flash[:no_content_edit] = "An edit must have content"
+      flash[:no_content_edit] = "An edit must have content."
       erb :"reviews/edit"
 
     else
 
       @review.update(:content => params["content"])
       @review.save
-      redirect to "/reviews/#{@review.id}"
+      @user = User.find_by(:id => @review.user_id)
+      flash[:edit_successful] = "Edit successful."
+      erb :"reviews/show"
 
     end
 

@@ -1,6 +1,12 @@
 
 <strong><em>Posted by <%= @user.username %> on <%= @review.created_at.strftime("%A, %B %d, %Y") %></em></strong><br><br>
 
+<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+  <div class="flash <%= type %>">
+    <br><strong><%= flash[type] %></strong><br><br>
+  </div>
+<% end %>
+
 <%= @review.content %>
 
 </br></br>

@@ -8,4 +8,4 @@
 
 #!!Airport.find_by(:airport_code => params["airport_code"].upcase)
 
-#User.find_by(:id => session[:user_id])
+#User.find_by(:id => @review.user_id)

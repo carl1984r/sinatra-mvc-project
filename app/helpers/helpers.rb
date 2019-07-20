@@ -9,7 +9,7 @@ class Helpers
   end
 
   def self.flash_types
-    [:empty_signup_form_error, :login_error, :logged_out, :empty_content_error, :review_created, :please_login, :login_to_edit, :wrong_user_edit, :no_content_edit, :delete_error, :wrong_user_delete, :success, :create_error]
+    [:empty_signup_form_error, :login_error, :logged_out, :empty_content_error, :review_created, :please_login, :login_to_edit, :wrong_user_edit, :no_content_edit, :delete_error, :wrong_user_delete, :success, :create_error, :edit_successful]
   end
 
 end
