@@ -27,7 +27,7 @@ class AirportsController < ApplicationController
 
     else
 
-      @reviews = Airport.find(params[:id]).reviews
+      @airport = Airport.find(params[:id])
       @user = Helpers.current_user(session)
       erb :"airports/show"
 
