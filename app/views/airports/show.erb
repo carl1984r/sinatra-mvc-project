@@ -2,7 +2,7 @@
 
 <h3><p>Your Review(s) for: <%= @airport.airport_code %> <p></h3>
 
-<button onclick="location.href = '/logout';">Logout</button>
+<button onclick="location.href = '/reviews';">Back to Reviews</button> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button>
 
 <% @airport.reviews.reverse.each do |review| %>
   <ul>

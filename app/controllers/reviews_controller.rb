@@ -119,30 +119,40 @@ class ReviewsController < ApplicationController
 
   post '/reviews/:id/delete' do
 
-    @review = Review.find(params[:id])
+   if !Review.all.detect {|x| x if params[:id].to_i == x.id}.nil?
 
-    if !Helpers.is_logged_in?(session)
+     @review = Review.find(params[:id])
 
-      flash[:delete_error] = "Please login to delete a review."
-      erb :'/users/login'
+     if !Helpers.is_logged_in?(session)
 
-    elsif Helpers.current_user(session).id != @review.user_id
+       flash[:delete_error] = "Please login to delete a review."
+       erb :'/users/login'
 
-      @user = Helpers.current_user(session)
-      @reviews = Review.all
-      flash[:wrong_user_delete] = "Oops! You can only delete your own reviews."
-      erb :'/reviews/reviews'
+     elsif Helpers.current_user(session).id != @review.user_id
 
-    else
+        @user = Helpers.current_user(session)
+        @reviews = Review.all
+        flash[:wrong_user_delete] = "Oops! You can only delete your own reviews."
+        erb :'/reviews/reviews'
 
-      @review.delete
-      @user = Helpers.current_user(session)
-      @reviews = Review.all
-      flash[:success] = "Review deleted."
-      erb :'/reviews/reviews'
+     else
+
+        @review.delete
+        @user = Helpers.current_user(session)
+        @reviews = Review.all
+        flash[:success] = "Review deleted."
+        erb :'/reviews/reviews'
+
+     end
+
+   else
+
+    redirect to '/reviews'
+
+   end
+
+
 
   end
-
- end
 
 end
