@@ -20,10 +20,12 @@ class AirportsController < ApplicationController
 
   get '/airports/:id' do
 
+
     if !Helpers.is_logged_in?(session)
 
       flash[:please_login] = "Please login to view content."
       erb :'/users/login'
+
 
     else
 

@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
 
 
-  use Rack::Flash
+  use Rack::Flash, :sweep => true
 
   configure do
     enable :sessions

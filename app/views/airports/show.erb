@@ -1,6 +1,12 @@
-<h3>Logged in as: <%= @user.username %> </h3>
+<h5>Logged in as: <%= @user.username %> </h5>
 
 <h3><p>Your Review(s) for: <%= @airport.airport_code %> <p></h3>
+
+  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+    <div class="flash <%= type %>">
+      <strong><%= flash[type] %></strong><br><br>
+    </div>
+  <% end %>
 
 <button onclick="location.href = '/reviews';">Back to Reviews</button>
 
