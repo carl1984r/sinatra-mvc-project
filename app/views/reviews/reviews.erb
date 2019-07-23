@@ -3,13 +3,14 @@
 
  <h3>Recent Airport Reviews</h3>
 
- <button onclick="location.href = '/airports';" type="button">My Reviewed Airports</button> &nbsp|&nbsp <button onclick="location.href = '/reviews/new';" type="button">Create a Review</button> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button><br><br>
+ <button onclick="location.href = '/airports';" type="button"><span>My Airports</span></button> <button onclick="location.href = '/reviews/new';" type="button"><span>Create</span></button> <button onclick="location.href = '/logout';"><span>Logout</span></button><br><br>
 
  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
    <div class="flash <%= type %>">
      <strong><%= flash[type] %></strong>
    </div>
 <% end %>
+
 
 <% @reviews.reverse.each do |review| %>
   <ul>
