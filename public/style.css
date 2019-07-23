@@ -14,3 +14,8 @@ body {
     display: table-cell;
     vertical-align: middle;
 }
+
+div, form, h5, h3 {
+   display: flex;
+   justify-content: center;
+}
