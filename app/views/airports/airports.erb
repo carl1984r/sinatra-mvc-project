@@ -1,11 +1,15 @@
-<h3>Logged in as: <%= @user.username %></h3>
+<h5>Logged in as: <%= @user.username %></h5>
 
-<h3><p>Airports You Have Reviewed<p></h3>
+<h3>Airports You Have Reviewed</h3>
 
-<button onclick="location.href = '/reviews';">Back to Reviews</button> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button>
+<button onclick="location.href = '/reviews';">Back to Reviews</button>
+
+<button onclick="location.href = '/logout';">Logout</button>
 
 <% @airports.reverse.each do |airport| %>
+<div id="b">
   <ul>
     <li><a href="/airports/<%= airport.id %>"><%= airport.airport_code %></a> <br>  </em></li>
   </ul>
+</div>
 <% end %>

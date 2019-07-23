@@ -19,6 +19,18 @@ h1#c {
   font-size: 200%;
 }
 
+div#a {
+  text-align: left;
+  position: relative;
+  left: -190px;
+}
+
+div#b {
+  text-align: left;
+  position: relative;
+  left: -140px;
+}
+
 div, form, h5, h3, h1 {
    display: flex;
    justify-content: center;
@@ -34,12 +46,12 @@ button {
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 18px;
-  padding: 20px;
-  width: 150px;
+  font-size: 15px;
+  padding: 10px 20px;
+  width: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 10px;
+  margin: 1px;
 }
 
 button span {
@@ -65,4 +77,10 @@ button:hover span {
 button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+li {
+  text-align: left;
+  position: relative;
+  left: 120px;
 }

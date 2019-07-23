@@ -2,10 +2,14 @@
 
 <h3><p>Your Review(s) for: <%= @airport.airport_code %> <p></h3>
 
-<button onclick="location.href = '/reviews';">Back to Reviews</button> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button>
+<button onclick="location.href = '/reviews';">Back to Reviews</button>
+
+<button onclick="location.href = '/logout';">Logout</button>
 
 <% @airport.reviews.reverse.each do |review| %>
+ <div id="a">
   <ul>
     <li><a href="/reviews/<%= review.id %>"><%= review.content %></a> <br> &nbsp &nbsp <em>posted on: <%= review.created_at.strftime("%A, %B %d, %Y") %> by <%= User.find(review.user_id).username %></em></li> <br><br>
   </ul>
+</div>
 <% end %>
