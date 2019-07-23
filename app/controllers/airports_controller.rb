@@ -20,12 +20,18 @@ class AirportsController < ApplicationController
 
   get '/airports/:id' do
 
+    @airport = Airport.find(params[:id])
 
     if !Helpers.is_logged_in?(session)
 
       flash[:please_login] = "Please login to view content."
       erb :'/users/login'
 
+    elsif @airport.reviews.empty?
+
+      @user = Helpers.current_user(session)
+      flash[:no_review] = "You have left no reviews for this airport."
+      erb :"airports/show"
 
     else
 

@@ -110,8 +110,9 @@ class ReviewsController < ApplicationController
       @review.update(:content => params["content"])
       @review.save
       @user = User.find_by(:id => @review.user_id)
+      @reviews = Review.all
       flash[:edit_successful] = "Edit successful."
-      erb :"reviews/show"
+      erb :"reviews/reviews"
 
     end
 
