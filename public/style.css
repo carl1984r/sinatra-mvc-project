@@ -15,7 +15,11 @@ body {
     vertical-align: middle;
 }
 
-div, form, h5, h3 {
+div, form, h5, h3, h1 {
    display: flex;
    justify-content: center;
+}
+
+form {
+  display: inline;
 }

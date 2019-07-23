@@ -12,9 +12,16 @@
 
 </br></br>
 
+<button onclick="location.href = '/reviews';">Back to Reviews</button> &nbsp|&nbsp <button onclick="location.href = '/reviews/<%= @review.id %>/edit';" type="button">Edit Review</button>
+
+&nbsp|&nbsp
 
 <form method="POST" action="/reviews/<%= @review.id %>/delete">
 
-  <button onclick="location.href = '/reviews';">Back to Reviews</button> &nbsp|&nbsp <button onclick="location.href = '/reviews/<%= @review.id %>/edit';" type="button">Edit Review</button> &nbsp|&nbsp <input type="submit" value="Delete Review"> &nbsp|&nbsp <button onclick="location.href = '/logout';">Logout</button>
+   <input type="submit" value="Delete Review">
 
 </form>
+
+&nbsp|&nbsp
+
+<button onclick="location.href = '/logout';">Logout</button>
