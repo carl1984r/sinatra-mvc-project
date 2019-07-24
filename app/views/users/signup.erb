@@ -1,6 +1,4 @@
-
-
-<h1>Account Sign Up</h1>
+<h3>Account Sign Up</h3>
 
 <p>Please complete the form below to create a new user account.</p>
 
@@ -11,9 +9,13 @@
 <% end %>
 
 <form method="POST" action="/signup">
+<div>
   <label><p>Username:</p><input type = "text" name="username" id="username"><br><br>
   <label><p>Email:</p><input type="text" name="email" id="email"><br><br>
   <label><p>Password:</p><input type="text" name="password" id="password"><br><br>
+</div>
+<div>
+  <button type="submit" value="Create"><span>Create Account</span></button>
+</div>
 
-  <input type="submit" value="Create">
 </form>
