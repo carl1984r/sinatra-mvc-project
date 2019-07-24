@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
     else
 
-      erb :index
+      redirect '/'
 
     end
 

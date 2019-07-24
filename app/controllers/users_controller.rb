@@ -35,10 +35,8 @@ class UsersController < ApplicationController
 
     if user && user.authenticate(params[:password])
 
-      @user = user
-      @reviews = Review.all
       session[:user_id] = user.id
-      erb :'/reviews/reviews'
+      redirect '/reviews'
 
     else
 
@@ -54,12 +52,11 @@ class UsersController < ApplicationController
     if Helpers.is_logged_in?(session)
 
       session.clear
-      flash[:logged_out] = "You are now logged out."
-      erb :'/users/login'
+      redirect '/login'
 
     else
 
-      erb :index
+      redirect '/'
 
     end
 
