@@ -30,7 +30,7 @@ class AirportsController < ApplicationController
     elsif @airport.reviews.empty?
 
       @user = Helpers.current_user(session)
-      flash[:no_review] = "You have left no reviews for this airport."
+      flash[:no_review] = "You have no reviews for this airport."
       erb :"airports/show"
 
     else
