@@ -1,14 +1,19 @@
-<h1>Account Login</h1>
+<h3>Account Login</h3>
 
 
 <% if flash.has?(:logged_out) %>
+
   <div>
+
     <strong><%= flash[:logged_out] %></strong>
+
   </div>
+
 <% end %>
 
 
 <div>
+
   <form method="POST" action="/login">
 
     <div>
@@ -21,5 +26,5 @@
       <button type="submit" value="submit"><span>Submit</span></button>
 
   </form>
+
 </div>
-  

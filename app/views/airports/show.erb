@@ -3,9 +3,13 @@
 <h3><p>Your Review(s) for: <%= @airport.airport_code %> <p></h3>
 
   <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+
     <div class="flash <%= type %>">
+
       <strong><%= flash[type] %></strong><br><br>
+
     </div>
+
   <% end %>
 
 <button onclick="location.href = '/airports';">Back to Airports</button>
@@ -13,9 +17,15 @@
 <button onclick="location.href = '/logout';">Logout</button>
 
 <% @airport.reviews.reverse.each do |review| %>
+
  <div id="a">
+
   <ul>
+
     <li><a href="/reviews/<%= review.id %>"><%= review.content %></a> <br> &nbsp &nbsp <em>posted on: <%= review.created_at.strftime("%A, %B %d, %Y") %> by <%= User.find(review.user_id).username %></em></li> <br><br>
+
   </ul>
-</div>
+
+ </div>
+
 <% end %>

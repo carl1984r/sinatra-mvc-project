@@ -2,20 +2,30 @@
 <h3>Create a New Review:</h3>
 
 <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
+
   <div class="flash <%= type %>">
+
     <strong><%= flash[type] %></strong>
+
   </div>
+
 <% end %>
 
 
 <form method="POST" action="/reviews">
-<div>
-  <label><p>Airport Name:</p><input type="text" name="airport_name" id="airport_name"><br><br>
-  <label><p>Airport Code:</p><input type="text" name="airport_code" id="airport_code"><br><br>
-  <label><p>Airport Review:</p><input type="text" name="content" id="content"><br><br>
-</div>
-<div>
-  <button type="submit" value="submit"><span>Submit</span></button>
-</div>
+
+  <div>
+
+    <label><p>Airport Name:</p><input type="text" name="airport_name" id="airport_name"><br><br>
+    <label><p>Airport Code:</p><input type="text" name="airport_code" id="airport_code"><br><br>
+    <label><p>Airport Review:</p><input type="text" name="content" id="content"><br><br>
+
+  </div>
+
+  <div>
+
+    <button type="submit" value="submit"><span>Submit</span></button>
+
+  </div>
 
 </form>
