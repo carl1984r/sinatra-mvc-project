@@ -90,6 +90,7 @@ class ReviewsController < ApplicationController
 
     else
 
+      @review = Review.find(params[:id])
       erb :"reviews/edit"
 
     end

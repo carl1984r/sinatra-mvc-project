@@ -1,17 +1,16 @@
 
 <h3>Edit Review Content:</h3>
-
-<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
-  <div class="flash <%= type %>">
-    <strong><%= flash[type] %></strong><br><br>
-  </div>
-<% end %>
+<div>
+<%= @review.content %>
+</div><br>
 
 <form method="POST" action="/reviews/<%= @review.id %>">
+
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <input type="text" name="content" id="content" value="<%= @review.content %>"><br>
-
-  <input type="submit" value="submit">
+  <textarea rows="4" cols="50" type="text" name="content" id="content" value="<%= @review.content %>"></textarea><br><br>
+<div>
+  <button type="submit" value="submit"><span>Edit Review</span></button>
+</div>
 
 </form>
