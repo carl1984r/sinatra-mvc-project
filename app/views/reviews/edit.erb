@@ -10,9 +10,10 @@
 <form method="POST" action="/reviews/<%= @review.id %>">
 
   <input id="hidden" type="hidden" name="_method" value="patch">
-
+<div>
   <textarea rows="4" cols="50" type="text" name="content" id="content" value="<%= @review.content %>"></textarea><br><br>
-
+</div>
+<br>
   <div>
 
     <button type="submit" value="submit"><span>Edit Review</span></button>

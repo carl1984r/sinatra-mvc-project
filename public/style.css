@@ -40,7 +40,7 @@ div#a {
 div#b {
   text-align: left;
   position: relative;
-  left: -140px;
+  left: 0px;
 }
 
 div, form, h5, h3, h1 {
@@ -99,5 +99,7 @@ button:hover span:after {
 li {
   text-align: left;
   position: relative;
-  left: 120px;
+  left: 0px;
+  max-width:500px;
+  margin: auto;
 }

@@ -8,11 +8,13 @@
 </div>
 
 </br></br>
-
+<div>
 <button onclick="location.href = '/reviews';"><span>Back to Reviews</span></button>
 
 <button onclick="location.href = '/reviews/<%= @review.id %>/edit';" type="button"><span>Edit Review</span></button>
+</div>
 
+<div>
 <form method="POST" action="/reviews/<%= @review.id %>/delete">
 
    <button type="submit" value="Delete Review"><span>Delete Review</span></button>
@@ -20,3 +22,4 @@
 </form>
 
 <button onclick="location.href = '/logout';"><span>Logout</span></button>
+</div>

@@ -11,14 +11,17 @@
     </div>
 
   <% end %>
+<div>
+  <button onclick="location.href = '/airports';">Back to Airports</button>
 
-<button onclick="location.href = '/airports';">Back to Airports</button>
+  <button onclick="location.href = '/logout';">Logout</button>
+</div>
 
-<button onclick="location.href = '/logout';">Logout</button>
+<br><hr>
 
 <% @airport.reviews.reverse.each do |review| %>
 
- <div id="a">
+ <div id="b">
 
   <ul>
 
