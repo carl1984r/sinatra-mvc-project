@@ -3,7 +3,7 @@
   Airport Review is an app which allows a user to document their airport experiences and view other user
   experiences.
 
-  A user simply will create an account.  Once logged in, a user can create, read, update or delete their review of an airport.  New airports can be added into the app as well.  
+  A user simply will create an account.  Once logged in, a user can create, read, update or delete their review of an airport.  New airports can be added into the app as well - once an airport is added, it continues to persist in the database to allow other users to include their own review of the same airport.
 
   Reviewing of airports provides users valuable knowledge - allowing for better planning and decision making.  
 
