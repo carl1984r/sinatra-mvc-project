@@ -24,4 +24,4 @@
 
 ## License
 
-  The project is available as open source under the terms of the included MIT License.
+  The project is available as open source under the terms of the included MIT [License](https://github.com/carl1984r/sinatra-mvc-project/blob/master/LICENSE.txt).
