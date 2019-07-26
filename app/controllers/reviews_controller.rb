@@ -112,6 +112,7 @@ class ReviewsController < ApplicationController
       @review.save
       @user = User.find_by(:id => @review.user_id)
       @reviews = Review.all
+      flash.sweep!
       flash[:edit_successful] = "Edit successful."
       erb :"reviews/reviews"
 
