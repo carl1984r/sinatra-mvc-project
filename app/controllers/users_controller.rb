@@ -10,7 +10,14 @@ class UsersController < ApplicationController
 
       if  params[:username].empty? || params[:email].empty? || params[:password].empty?
 
+          flash.sweep!
           flash[:empty_signup_form_error] = "Complete all form fields."
+          erb :'users/signup'
+
+      elsif !!User.find_by(:username => params["username"])
+
+          flash.sweep!
+          flash[:username_taken] = "Username taken - please try a different username."
           erb :'users/signup'
 
       else
