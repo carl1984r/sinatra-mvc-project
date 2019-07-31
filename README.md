@@ -7,7 +7,7 @@
 
   Reviewing of airports provides users valuable knowledge - allowing for better planning and decision making.  
 
-  Navingating through the app is simple, [a video walkthrough is available for clarity](http://).
+  Navingating through the app is simple, [a video walkthrough is available for clarity](https://drive.google.com/open?id=1325Xog5xKUbn2fXtIi5atgb7_3jIAbfY).
 
   The blog for creating this project can be found [here](https://carl1984r.github.io/sinatra_portfolio_project_-_07_14_2019).
 
