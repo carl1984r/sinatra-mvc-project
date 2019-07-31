@@ -106,6 +106,13 @@ class ReviewsController < ApplicationController
       flash[:no_content_edit] = "An edit must have content."
       erb :"reviews/edit"
 
+    elsif Helpers.current_user(session).id != @review.user_id
+
+      @reviews = Review.all
+      @user = Helpers.current_user(session)
+      flash[:wrong_user_edit] = "Oops! You can only edit your own reviews."
+      erb :'/reviews/reviews'
+
     else
 
       @review.update(:content => params["content"])
