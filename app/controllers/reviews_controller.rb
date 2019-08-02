@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
     if !Helpers.is_logged_in?(session)
 
       flash[:please_login] = "Please login to view content."
-      erb :'/users/login'
+      redirect '/login'
 
     else
 

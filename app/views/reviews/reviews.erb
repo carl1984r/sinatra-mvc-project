@@ -3,23 +3,21 @@
 
  <h3>Recent Airport Reviews</h3>
 <div>
- <button onclick="location.href = '/airports';" type="button"><span>My Airports</span></button> 
+ <button onclick="location.href = '/airports';" type="button"><span>My Airports</span></button>
 </div>
- 
+
 <div>
- <button onclick="location.href = '/reviews/new';" type="button"><span>Create</span></button> 
+ <button onclick="location.href = '/reviews/new';" type="button"><span>Create</span></button>
 </div>
- 
+
 <div>
  <button onclick="location.href = '/logout';"><span>Logout</span></button>
 </div><br>
 
 <div>
 
-  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
-    <div class="flash <%= type %>">
-      <strong><%= flash[type] %></strong><br>
-    </div>
+  <% flash.keys.each do |type| %>
+    <strong><%= flash[type] %></strong><br><br>
   <% end %>
 
 </div>

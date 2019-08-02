@@ -3,8 +3,8 @@
 
 <div>
 
-  <% if flash.has?(:logged_out) %>
-    <strong><%= flash[:logged_out] %></strong><br><br>
+  <% flash.keys.each do |type| %>
+    <strong><%= flash[type] %></strong><br><br>
   <% end %>
 
 </div>

@@ -47,8 +47,8 @@ class UsersController < ApplicationController
 
     else
 
-      flash[:login_error] = "Incorrect login. Try again?"
-      erb :'/users/login'
+      flash[:login_error] = "Incorrect login. Try again??"
+      redirect '/login'
 
     end
 
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     if Helpers.is_logged_in?(session)
 
       session.clear
-      flash[:logged_out] = "Logged out."
+      flash.now[:logged_out] = "Logged out."
       erb :'/users/logout'
 
     else

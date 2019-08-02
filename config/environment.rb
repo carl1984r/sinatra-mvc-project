@@ -1,6 +1,6 @@
 require 'bundler'
 require 'pry'
-require 'rack-flash'
+require 'sinatra/flash'
 
 
 Bundler.require
