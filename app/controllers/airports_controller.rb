@@ -6,7 +6,7 @@ class AirportsController < ApplicationController
     if !Helpers.is_logged_in?(session)
 
       flash[:please_login] = "Please login to view content."
-      erb :'/users/login'
+      redirect '/login'
 
     else
 
@@ -24,13 +24,13 @@ class AirportsController < ApplicationController
 
     if !Helpers.is_logged_in?(session)
 
-      flash[:please_login] = "Please login to view content."
-      erb :'/users/login'
+      flash.next[:please_login] = "Please login to view content."
+      redirect '/login'
 
     elsif @airport.reviews.empty?
 
       @user = Helpers.current_user(session)
-      flash[:no_review] = "You have no reviews for this airport."
+      flash.now[:no_review] = "You have no reviews for this airport."
       erb :"airports/show"
 
     else

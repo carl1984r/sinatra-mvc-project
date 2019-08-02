@@ -2,14 +2,8 @@
 
 <h3><p>Your Review(s) for: <%= @airport.airport_code %> <p></h3>
 
-  <% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
-
-    <div class="flash <%= type %>">
-
-      <strong><%= flash[type] %></strong><br><br>
-
-    </div>
-
+  <% flash.keys.each do |type| %>
+    <strong><%= flash[type] %></strong><br><br>
   <% end %>
 
 <div>

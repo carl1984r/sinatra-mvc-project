@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
     else
 
-      flash[:login_error] = "Incorrect login. Try again??"
+      flash.next[:login_error] = "Incorrect login. Try again?"
       redirect '/login'
 
     end

@@ -1,10 +1,10 @@
 
 <h3>Edit Review Content:</h3>
 
-<% if flash.has?(:no_content_edit) %>
-<div>
-  <strong><%= flash[:no_content_edit] %></strong><br><br>
-</div>
+<% flash.keys.each do |type| %>
+  <div>
+    <strong><%= flash[type] %></strong><br><br>
+  </div>
 <% end %>
 
 <div>
