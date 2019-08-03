@@ -55,6 +55,8 @@ class ReviewsController < ApplicationController
 
   get '/reviews/:id' do
 
+   if !Review.all.detect {|x| x if params[:id].to_i == x.id}.nil?
+
     if !Helpers.is_logged_in?(session)
 
       flash.next[:please_login] = "Please login to view content."
@@ -67,6 +69,12 @@ class ReviewsController < ApplicationController
       erb :"reviews/show"
 
     end
+
+   else
+
+    redirect to '/reviews'
+
+   end
 
   end
 
@@ -120,8 +128,6 @@ class ReviewsController < ApplicationController
 
   post '/reviews/:id/delete' do
 
-   if !Review.all.detect {|x| x if params[:id].to_i == x.id}.nil?
-
      @review = Review.find(params[:id])
 
      if !Helpers.is_logged_in?(session)
@@ -141,12 +147,6 @@ class ReviewsController < ApplicationController
        redirect '/reviews'
 
      end
-
-   else
-
-    redirect to '/reviews'
-
-   end
 
   end
 
