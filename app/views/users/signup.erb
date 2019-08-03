@@ -2,9 +2,9 @@
 
 <p>Please complete the form below to create a new user account.</p>
 
-<% Helpers.flash_types.select {|type| flash.has?(type)}.each do |type| %>
-  <div class="flash <%= type %>">
-    <strong><%= flash[type] %></strong>
+<% flash.keys.each do |type| %>
+  <div>
+    <strong><%= flash[type] %></strong><br><br>
   </div>
 <% end %>
 

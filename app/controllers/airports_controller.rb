@@ -5,7 +5,7 @@ class AirportsController < ApplicationController
 
     if !Helpers.is_logged_in?(session)
 
-      flash[:please_login] = "Please login to view content."
+      flash.next[:please_login] = "Please login to view content."
       redirect '/login'
 
     else
