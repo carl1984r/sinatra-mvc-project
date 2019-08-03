@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
       end
 
-    end
+  end
 
   get '/login' do
 
