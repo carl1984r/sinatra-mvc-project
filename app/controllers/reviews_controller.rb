@@ -107,8 +107,8 @@ class ReviewsController < ApplicationController
 
     if params["content"].empty?
 
-      flash.now[:no_content_edit] = "An edit must have content."
-      erb :"reviews/edit"
+      flash.next[:no_content_edit] = "An edit must have content."
+      redirect back
 
     elsif Helpers.current_user(session).id != @review.user_id
 
