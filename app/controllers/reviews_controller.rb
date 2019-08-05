@@ -2,10 +2,7 @@ class ReviewsController < ApplicationController
 
   get '/reviews/new' do
 
-    if !Helpers.is_logged_in?(session)
-
-      flash.next[:create_error] = "Please login to create a review."
-      redirect '/login'
+    if redirect_if_not_logged_in
 
     else
 
@@ -38,10 +35,7 @@ class ReviewsController < ApplicationController
 
   get '/reviews' do
 
-    if !Helpers.is_logged_in?(session)
-
-      flash.next[:please_login] = "Please login to view content."
-      redirect '/login'
+    if redirect_if_not_logged_in
 
     else
 
@@ -57,10 +51,7 @@ class ReviewsController < ApplicationController
 
   if  !!Review.find_by(:id => params[:id])
 
-    if !Helpers.is_logged_in?(session)
-
-      flash.next[:please_login] = "Please login to view content."
-      redirect '/login'
+    if redirect_if_not_logged_in
 
     else
 
@@ -82,15 +73,9 @@ class ReviewsController < ApplicationController
 
     @review = Review.find(params[:id])
 
-    if !Helpers.is_logged_in?(session)
+    if redirect_if_not_logged_in
 
-      flash.next[:login_to_edit] = "Please login to edit a review."
-      redirect '/login'
-
-    elsif Helpers.current_user(session).id != @review.user_id
-
-      flash.next[:wrong_user_edit] = "Oops! You can only edit your own reviews."
-      redirect '/reviews'
+    elsif redirect_if_incorrect_user
 
     else
 
@@ -110,10 +95,7 @@ class ReviewsController < ApplicationController
       flash.next[:no_content_edit] = "An edit must have content."
       redirect back
 
-    elsif Helpers.current_user(session).id != @review.user_id
-
-      flash.next[:wrong_user_edit] = "Oops! You can only edit your own reviews."
-      redirect '/reviews'
+    elsif redirect_if_incorrect_user
 
     else
 
@@ -130,10 +112,7 @@ class ReviewsController < ApplicationController
 
      @review = Review.find(params[:id])
 
-     if !Helpers.is_logged_in?(session)
-
-       flash.next[:delete_error] = "Please login to delete a review."
-       redirect '/login'
+     if redirect_if_not_logged_in
 
      elsif Helpers.current_user(session).id != @review.user_id
 

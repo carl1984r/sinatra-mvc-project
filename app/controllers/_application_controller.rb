@@ -10,6 +10,32 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  helpers do
+
+    def redirect_if_not_logged_in
+
+      if !Helpers.is_logged_in?(session)
+
+        flash.next[:please_login] = "Please login to continue."
+        redirect '/login'
+
+      end
+
+    end
+
+    def redirect_if_incorrect_user
+
+      if Helpers.current_user(session).id != @review.user_id
+
+        flash.next[:wrong_user_edit] = "Oops! You can only edit your own reviews."
+        redirect '/reviews'
+
+      end
+
+    end
+
+  end
+
   get '/' do
 
     if Helpers.is_logged_in?(session)
@@ -22,14 +48,6 @@ class ApplicationController < Sinatra::Base
 
     end
 
- helpers do
-
-   def redirect_if_not_logged_in
-
-   end
-
- end
-
- end
+  end
 
 end
