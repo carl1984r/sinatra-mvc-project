@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
       if Helpers.current_user(session).id != @review.user_id
 
-        flash.next[:wrong_user_edit] = "Oops! You can only edit your own reviews."
+        flash.next[:wrong_user_edit] = "Oops! You can only modify your own reviews."
         redirect '/reviews'
 
       end

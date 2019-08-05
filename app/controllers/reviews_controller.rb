@@ -114,10 +114,7 @@ class ReviewsController < ApplicationController
 
      if redirect_if_not_logged_in
 
-     elsif Helpers.current_user(session).id != @review.user_id
-
-       flash.next[:wrong_user_delete] = "Oops! You can only delete your own reviews."
-       redirect '/reviews'
+     elsif redirect_if_incorrect_user
 
      else
 
