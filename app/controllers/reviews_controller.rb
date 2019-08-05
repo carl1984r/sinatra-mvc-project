@@ -2,13 +2,8 @@ class ReviewsController < ApplicationController
 
   get '/reviews/new' do
 
-    if redirect_if_not_logged_in
-
-    else
-
+      redirect_if_not_logged_in
       erb :"/reviews/new"
-
-    end
 
   end
 
@@ -35,31 +30,21 @@ class ReviewsController < ApplicationController
 
   get '/reviews' do
 
-    if redirect_if_not_logged_in
-
-    else
-
+      redirect_if_not_logged_in
       @reviews = Review.all
       @user = Helpers.current_user(session)
       erb :'/reviews/reviews'
-
-    end
 
   end
 
   get '/reviews/:id' do
 
-  if  !!Review.find_by(:id => params[:id])
+   if  !!Review.find_by(:id => params[:id])
 
-    if redirect_if_not_logged_in
-
-    else
-
+      redirect_if_not_logged_in
       @review = Review.find(params[:id])
       @user = User.find(@review.user_id)
       erb :"reviews/show"
-
-    end
 
    else
 
@@ -71,18 +56,13 @@ class ReviewsController < ApplicationController
 
   get '/reviews/:id/edit' do
 
-    @review = Review.find(params[:id])
+      @review = Review.find(params[:id])
 
-    if redirect_if_not_logged_in
-
-    elsif redirect_if_incorrect_user
-
-    else
+      redirect_if_not_logged_in
+      redirect_if_incorrect_user
 
       @review = Review.find(params[:id])
       erb :"reviews/edit"
-
-    end
 
   end
 
@@ -90,12 +70,12 @@ class ReviewsController < ApplicationController
 
     @review = Review.find(params[:id])
 
+    redirect_if_incorrect_user
+
     if params["content"].empty?
 
       flash.next[:no_content_edit] = "An edit must have content."
       redirect back
-
-    elsif redirect_if_incorrect_user
 
     else
 
@@ -112,17 +92,12 @@ class ReviewsController < ApplicationController
 
      @review = Review.find(params[:id])
 
-     if redirect_if_not_logged_in
+     redirect_if_not_logged_in
+     redirect_if_incorrect_user
 
-     elsif redirect_if_incorrect_user
-
-     else
-
-       @review.delete
-       flash.next[:success] = "Review deleted."
-       redirect '/reviews'
-
-     end
+     @review.delete
+     flash.next[:success] = "Review deleted."
+     redirect '/reviews'
 
   end
 
