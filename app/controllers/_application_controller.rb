@@ -22,6 +22,14 @@ class ApplicationController < Sinatra::Base
 
     end
 
-  end
+ helpers do
+
+   def redirect_if_not_logged_in
+
+   end
+
+ end
+
+ end
 
 end

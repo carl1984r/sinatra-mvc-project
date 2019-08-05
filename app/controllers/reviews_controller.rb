@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
 
   get '/reviews/:id' do
 
-   if !Review.all.detect {|x| x if params[:id].to_i == x.id}.nil?
+  if  !!Review.find_by(:id => params[:id])
 
     if !Helpers.is_logged_in?(session)
 
